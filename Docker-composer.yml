@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  proyecto-microservicio:
+    container_name: proyectos-monolitico
+    image: proyecto-microservicio:v1
+    build:
+      context: ./proyectos-monolitico
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    networks:
+      - proyectos-monolitico-network
+
+networks:
+  proyectos-monolitico-network:
+    driver: bridge
